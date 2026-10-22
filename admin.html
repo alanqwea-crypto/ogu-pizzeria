@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>관리자 로그인 | 오구 피제리아</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="page-admin">
+  <main class="login-wrap">
+    <a href="index.html" class="logo"><span class="logo-ogu">ogu</span><span class="logo-pizzeria">pizzeria</span></a>
+    <form class="login-card edit-form" id="loginForm">
+      <h1>관리자 로그인</h1>
+      <p class="muted">고객센터 관리 권한이 있는 계정만 로그인할 수 있습니다.</p>
+      <label>이메일<input name="email" type="email" required autocomplete="username"></label>
+      <label>비밀번호<input name="password" type="password" required autocomplete="current-password"></label>
+      <p class="login-error" id="loginError" hidden></p>
+      <button type="submit" class="btn-primary">로그인</button>
+      <a href="support.html" class="login-back">← 고객센터로 돌아가기</a>
+    </form>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js"></script>
+  <script src="js/config.js"></script>
+  <script>
+    const cfg = window.OGU_CONFIG || {};
+    const form = document.getElementById('loginForm');
+    const errorEl = document.getElementById('loginError');
+    const showError = msg => { errorEl.textContent = msg; errorEl.hidden = false; };
+
+    if (!cfg.SUPABASE_URL || cfg.SUPABASE_URL.includes('YOUR-PROJECT')) {
+      showError('Supabase 연결 정보(js/config.js)가 아직 설정되지 않았습니다.');
+      form.querySelector('button').disabled = true;
+    } else {
+      const sb = window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY);
+
+      form.addEventListener('submit', async e => {
+        e.preventDefault();
+        errorEl.hidden = true;
+        const f = form.elements;
+        const { error } = await sb.auth.signInWithPassword({ email: f.email.value.trim(), password: f.password.value });
+        if (error) return showError('이메일 또는 비밀번호가 올바르지 않습니다.');
+
+        const { data: ok } = await sb.rpc('is_admin');
+        if (ok !== true) {
+          await sb.auth.signOut();
+          return showError('관리자 권한이 없는 계정입니다.');
+        }
+        location.href = 'support.html';
+      });
+    }
+  </script>
+</body>
+</html>
