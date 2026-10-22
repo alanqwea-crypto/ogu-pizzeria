@@ -25,7 +25,7 @@
         <span class="logo-ogu">ogu</span><span class="logo-pizzeria">pizzeria</span>
       </a>
       <nav class="gnb" aria-label="주요 메뉴">
-        <a href="#best">메뉴</a>
+        <a href="#menu">메뉴</a>
         <a href="#event">이벤트</a>
         <a href="#store">매장안내</a>
         <a href="#brand">브랜드</a>
@@ -36,7 +36,7 @@
       </a>
     </div>
     <nav class="gnb-mobile" aria-label="모바일 메뉴">
-      <a href="#best">메뉴</a>
+      <a href="#menu">메뉴</a>
       <a href="#event">이벤트</a>
       <a href="#store">매장안내</a>
       <a href="#brand">브랜드</a>
@@ -97,63 +97,36 @@
     <section class="section container" id="best">
       <div class="section-head">
         <h2>BEST 메뉴</h2>
-        <div class="tabs" role="tablist" id="menuTabs">
-          <button role="tab" class="active" data-filter="all">전체</button>
-          <button role="tab" data-filter="pizza">피자</button>
-          <button role="tab" data-filter="pasta">파스타</button>
-          <button role="tab" data-filter="side">사이드 · 그릴</button>
-          <button role="tab" data-filter="drink">음료</button>
-        </div>
+        <a class="more" href="#menu">전체 메뉴 ›</a>
       </div>
-      <div class="menu-grid" id="menuGrid">
-        <article class="menu-card" data-cat="pizza">
+      <div class="menu-grid">
+        <article class="menu-card">
           <div class="menu-img"><span class="badge">BEST</span><img src="images/margherita.jpg" alt="마르게리타"></div>
-          <h3>마르게리타</h3><p>Margherita</p>
+          <h3>마르게리타</h3><p class="price">9,900원</p>
         </article>
-        <article class="menu-card" data-cat="pizza">
-          <div class="menu-img"><span class="badge new">NEW</span><img src="images/poster-snow.jpg" alt="스노우 네라노"></div>
-          <h3>스노우 네라노</h3><p>Snow Nerano</p>
+        <article class="menu-card">
+          <div class="menu-img"><span class="badge">BEST</span><img src="images/sausage.png" alt="대파크림치즈 파누쪼"></div>
+          <h3>대파크림치즈 파누쪼</h3><p class="price">9,900원</p>
         </article>
-        <article class="menu-card" data-cat="pasta">
-          <div class="menu-img"><span class="badge new">NEW</span><img src="images/poster-octopus.jpg" alt="옥토퍼스 피칸테"></div>
-          <h3>옥토퍼스 피칸테</h3><p>Octopus Piccante</p>
+        <article class="menu-card">
+          <div class="menu-img"><span class="badge">BEST</span><img src="images/brand-ham.jpg" alt="잠봉뵈르 파누쪼"></div>
+          <h3>잠봉뵈르 파누쪼</h3><p class="price">11,500원</p>
         </article>
-        <article class="menu-card" data-cat="side">
-          <div class="menu-img"><span class="badge new">NEW</span><img src="images/poster-onion.jpg" alt="타워 어니언링"></div>
-          <h3>타워 어니언링</h3><p>Tower Onion Ring</p>
-        </article>
-        <article class="menu-card" data-cat="pizza">
-          <div class="menu-img"><span class="badge">BEST</span><img src="images/brand-ham.jpg" alt="햄과 루꼴라를 올린 피자"></div>
-          <h3>잠봉 &amp; 루꼴라</h3><p>Jambon &amp; Rucola</p>
-        </article>
-        <article class="menu-card" data-cat="pizza">
-          <div class="menu-img"><img src="images/sausage.png" alt="소시지를 올린 피자"></div>
-          <h3>소시지 피자</h3><p>Sausage</p>
-        </article>
-        <article class="menu-card" data-cat="side">
-          <div class="menu-img"><span class="badge">BEST</span><img src="images/cheese.jpg" alt="치즈 프리또"></div>
-          <h3>치즈 프리또</h3><p>Cheese Fritto</p>
-        </article>
-        <article class="menu-card" data-cat="side">
-          <div class="menu-img"><img src="images/steak.jpg" alt="스테이크"></div>
-          <h3>스테이크</h3><p>Steak</p>
-        </article>
-        <article class="menu-card" data-cat="drink">
-          <div class="menu-img"><img src="images/drinks.jpg" alt="에이드 음료"></div>
-          <h3>에이드</h3><p>Ade</p>
+        <article class="menu-card">
+          <div class="menu-img"><span class="badge">BEST</span><img src="images/steak.jpg" alt="OGU 스테이크"></div>
+          <h3>OGU 스테이크(150g)</h3><p class="price">25,900원</p>
         </article>
       </div>
+    </section>
 
-      <div class="pizza-lineup">
-        <p class="lineup-title">OGU PIZZA LINE-UP</p>
-        <ol>
-          <li><span>01</span>Margherita</li>
-          <li><span>02</span>Shrimp Salad</li>
-          <li><span>03</span>Jambon &amp; Rucola</li>
-          <li><span>04</span>Rucola &amp; Olive</li>
-          <li><span>05</span>Funghi Gorgonzola</li>
-        </ol>
+    <!-- 전체 메뉴 -->
+    <section class="section container" id="menu">
+      <div class="section-head">
+        <h2>전체 메뉴</h2>
       </div>
+      <div class="tabs" role="tablist" id="menuTabs"></div>
+      <div class="menu-list" id="menuList"></div>
+      <p class="menu-note">* 메뉴와 가격은 매장 사정에 따라 변경될 수 있습니다.</p>
     </section>
 
     <!-- 바로가기 타일 -->
@@ -229,13 +202,13 @@
             <dt>영업시간</dt><dd>매일 11:00 – 23:00</dd>
             <dt>디너 메뉴</dt><dd>17:00 – 21:00 (일부 메뉴)</dd>
             <dt>오시는 길</dt><dd>2호선 서초역 3번 출구에서 반포대로 따라 도보 3분</dd>
-            <dt>주소</dt><dd class="todo">서울 서초구 (정확한 주소 입력 필요)</dd>
-            <dt>전화</dt><dd class="todo">02-000-0000 (입력 필요)</dd>
+            <dt>주소</dt><dd>서울 서초구 반포대로27길 13 1층</dd>
+            <dt>전화</dt><dd><a href="tel:02-598-1259">02-598-1259</a></dd>
           </dl>
           <p class="store-note">휴무 안내는 인스타그램에서 확인해 주세요.</p>
           <div class="store-btns">
             <a href="https://naver.me/Gow61ugu" target="_blank" rel="noopener" class="btn-primary">네이버 지도 · 예약</a>
-            <a href="https://www.instagram.com/ogupizzeria/" target="_blank" rel="noopener" class="btn-line">인스타그램</a>
+            <a href="tel:02-598-1259" class="btn-line">전화하기</a>
           </div>
         </div>
       </div>
@@ -245,7 +218,7 @@
   <footer class="footer">
     <div class="container">
       <a href="#" class="logo logo-footer"><span class="logo-ogu">ogu</span><span class="logo-pizzeria">pizzeria</span></a>
-      <p class="footer-info todo">상호 : 오구 피제리아 · 대표 : (입력 필요) · 사업자등록번호 : (입력 필요)<br>주소 : 서울특별시 서초구 (입력 필요) · 전화 : (입력 필요)</p>
+      <p class="footer-info">상호 : 오구피제리아 · 대표 : 한동효 · 사업자등록번호 : 298-86-00407<br>주소 : 서울특별시 서초구 반포대로27길 13 1층 · 전화 : 02-598-1259</p>
       <p class="copyright">© OGU Pizzeria. All rights reserved.</p>
     </div>
   </footer>

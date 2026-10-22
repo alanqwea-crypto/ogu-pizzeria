@@ -114,31 +114,37 @@ svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width:
 .more:hover { color: var(--text); }
 
 /* ---------- BEST 메뉴 ---------- */
-.tabs { display: flex; gap: 8px; flex-wrap: wrap; }
-.tabs button { height: 38px; padding: 0 18px; border-radius: 999px; border: 1px solid var(--line); background: var(--white); font-size: 14px; color: var(--muted); transition: all .2s; }
-.tabs button:hover { color: var(--text); }
-.tabs button.active { background: var(--brown); border-color: var(--brown); color: var(--white); font-weight: 600; }
-
-.menu-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 28px 24px; }
+.menu-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px 24px; }
 .menu-card { cursor: default; }
-.menu-card.hidden { display: none; }
 .menu-img { position: relative; aspect-ratio: 1; border-radius: 24px; overflow: hidden; background: var(--white); }
 .menu-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .4s; }
 .menu-card:hover .menu-img img { transform: scale(1.05); }
 .badge { position: absolute; top: 14px; left: 14px; z-index: 1; font-size: 12px; font-weight: 800; letter-spacing: .5px; color: var(--red); background: var(--white); padding: 4px 10px; border-radius: 999px; }
 .badge.new { background: var(--red); color: var(--white); }
 .menu-card h3 { margin-top: 14px; font-size: 18px; font-weight: 700; }
-.menu-card p { font-size: 14px; color: var(--muted); font-family: "Fraunces", serif; }
+.menu-card .price { margin-top: 2px; font-size: 17px; font-weight: 800; color: var(--red); }
 
-.pizza-lineup { margin-top: 48px; background: var(--red); color: var(--white); border-radius: var(--radius); padding: 36px 48px; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; position: relative; overflow: hidden; }
-.pizza-lineup::after {
-  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 14px;
-  background: repeating-linear-gradient(90deg, #fff 0 14px, transparent 14px 28px);
-  opacity: .9;
-}
-.lineup-title { font-family: "Fraunces", serif; font-weight: 800; font-size: 22px; letter-spacing: 1px; }
-.pizza-lineup ol { list-style: none; display: flex; flex-wrap: wrap; gap: 12px 32px; font-family: "Fraunces", serif; font-size: 18px; font-weight: 600; }
-.pizza-lineup li span { opacity: .6; margin-right: 8px; font-size: 14px; }
+/* ---------- 전체 메뉴 ---------- */
+.tabs { display: flex; gap: 8px; overflow-x: auto; scrollbar-width: none; margin-bottom: 24px; padding-bottom: 2px; }
+.tabs::-webkit-scrollbar { display: none; }
+.tabs button { flex: none; height: 42px; padding: 0 20px; border-radius: 999px; border: 1px solid var(--line); background: var(--white); font-size: 15px; color: var(--muted); transition: all .2s; }
+.tabs button small { font-size: 12px; opacity: .7; margin-left: 2px; }
+.tabs button:hover { color: var(--text); }
+.tabs button.active { background: var(--brown); border-color: var(--brown); color: var(--white); font-weight: 700; }
+
+.menu-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.menu-item { display: flex; align-items: center; gap: 20px; background: var(--white); border-radius: 20px; padding: 20px 20px 20px 24px; }
+.menu-item-text { flex: 1; min-width: 0; }
+.menu-item img { flex: none; width: 116px; height: 116px; object-fit: cover; border-radius: 16px; }
+.menu-tags { display: flex; gap: 4px; margin-bottom: 6px; }
+.menu-tags span { font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 999px; }
+.tag-pop { background: var(--red); color: var(--white); }
+.tag-rep { border: 1px solid var(--line); color: var(--muted); }
+.tag-hot { background: #fde8e4; color: var(--red); }
+.menu-item h3 { font-size: 18px; font-weight: 700; }
+.menu-desc { margin-top: 4px; font-size: 14px; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.menu-price { margin-top: 8px; font-size: 17px; font-weight: 800; }
+.menu-note { margin-top: 16px; font-size: 13px; color: var(--muted); }
 
 /* ---------- 바로가기 타일 ---------- */
 .quick { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 88px; }
@@ -224,13 +230,18 @@ svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width:
   .brand-img img { aspect-ratio: 4 / 3; }
   .store-info { padding: 32px 24px; }
   .section { padding-top: 64px; }
-  .pizza-lineup { padding: 28px 24px 40px; gap: 20px; }
+  .menu-grid { grid-template-columns: repeat(2, 1fr); }
+  .menu-list { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 560px) {
-  .menu-grid { grid-template-columns: repeat(2, 1fr); gap: 20px 12px; }
+  .menu-grid { gap: 20px 12px; }
   .menu-img { border-radius: 18px; }
   .menu-card h3 { font-size: 16px; }
+  .menu-item { gap: 14px; padding: 16px; }
+  .menu-item img { width: 96px; height: 96px; border-radius: 14px; }
+  .menu-item h3 { font-size: 16px; }
+  .menu-desc { font-size: 13px; }
   .cta-box { flex-direction: column; align-items: flex-start; }
   .brand-text .logo-ogu { font-size: 48px; }
   .brand-text .logo-pizzeria { font-size: 28px; }
