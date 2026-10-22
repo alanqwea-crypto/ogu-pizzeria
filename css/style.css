@@ -15,6 +15,13 @@
   --header-h: 128px;
 }
 
+/* 배너 제목용: 여기어때 잘난체 (무료 상업용 폰트) */
+@font-face {
+  font-family: "Jalnan";
+  src: url("https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_four@1.2/JalnanOTF00.woff") format("woff");
+  font-display: swap;
+}
+
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html { scroll-behavior: smooth; scroll-padding-top: var(--header-h); }
 body {
@@ -61,16 +68,15 @@ svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width:
 .hero { padding-top: 32px; }
 .slider { position: relative; border-radius: var(--radius); overflow: hidden; aspect-ratio: 1200 / 540; background: var(--beige); }
 .slides { display: flex; height: 100%; transition: transform .6s cubic-bezier(.6,.05,.25,1); }
-.slide { flex: 0 0 100%; display: grid; grid-template-columns: 1fr 1fr; align-items: center; height: 100%; }
+.slide { flex: 0 0 100%; display: grid; grid-template-columns: 1.15fr .85fr; align-items: center; height: 100%; word-break: keep-all; }
 .slide-beige { background: var(--beige); }
 .slide-peach { background: var(--peach); }
 .slide-red { background: var(--red); color: var(--white); }
 .slide-text { padding: 0 48px 0 108px; }
-.slide-eyebrow { font-family: "Fraunces", serif; font-weight: 800; letter-spacing: 2px; font-size: 15px; color: var(--red); margin-bottom: 14px; }
-.slide-red .slide-eyebrow { color: var(--beige); }
-.slide h2 { font-size: clamp(26px, 3.6vw, 48px); line-height: 1.22; font-weight: 800; letter-spacing: -1px; margin-bottom: 20px; }
-.slide-sub { font-size: clamp(14px, 1.4vw, 18px); color: var(--brown-2); }
-.slide-red .slide-sub { color: rgba(255,255,255,.85); }
+.slide-eyebrow { font-size: clamp(17px, 2vw, 26px); font-weight: 500; letter-spacing: -.5px; margin-bottom: 10px; }
+.slide h2 { font-family: "Jalnan", "Pretendard", sans-serif; font-weight: normal; font-size: clamp(28px, 3.9vw, 50px); line-height: 1.28; letter-spacing: -.5px; margin-bottom: 40px; }
+.slide-sub { font-size: clamp(14px, 1.5vw, 19px); font-weight: 500; }
+.slide-red .slide-sub { color: rgba(255,255,255,.9); }
 .slide-link { display: inline-block; margin-top: 26px; font-weight: 700; border-bottom: 2px solid currentColor; padding-bottom: 2px; }
 .slide-img { height: 100%; padding: 28px 28px 28px 0; }
 .slide-img img { width: 100%; height: 100%; object-fit: cover; border-radius: 20px; box-shadow: 0 18px 40px rgba(59,36,22,.18); }
