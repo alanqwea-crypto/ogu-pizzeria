@@ -9,9 +9,11 @@
 1. 왼쪽 메뉴 **SQL Editor** → New query
 2. `supabase/schema.sql` 내용을 전부 붙여넣고 **Run**
 
-## 3. 회원가입 막기 (관리자만 계정을 가지도록)
-- **Authentication → Sign In / Providers → Email**
-  - `Allow new users to sign up` 끄기
+## 3. 회원가입 설정 (선택)
+- 관리자 권한은 `admins` 표에 등록된 계정에만 생기므로, 회원가입을 열어 두어도
+  다른 계정은 고객센터를 관리할 수 없습니다.
+- 쓰지 않는 계정이 쌓이는 게 싫다면 **Authentication → Sign In / Providers → Email** 에서
+  `Allow new users to sign up` 을 끄면 됩니다.
 
 ## 4. 관리자 계정 만들기
 1. **Authentication → Users → Add user → Create new user**
