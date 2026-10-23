@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>매장찾기 | 오구 피제리아</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Pacifico&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
+  <link rel="stylesheet" href="css/style.css?v=5">
+</head>
+<body class="page-stores">
+
+  <header class="header">
+    <div class="header-top container">
+      <a href="https://www.instagram.com/ogupizzeria/" target="_blank" rel="noopener">INSTAGRAM</a>
+      <span class="bar"></span>
+      <a href="https://naver.me/Gow61ugu" target="_blank" rel="noopener">NAVER</a>
+    </div>
+    <div class="header-main container">
+      <a href="index.html" class="logo" aria-label="오구 피제리아 홈">
+        <span class="logo-ogu">ogu</span><span class="logo-pizzeria">pizzeria</span>
+      </a>
+      <nav class="gnb" aria-label="주요 메뉴">
+        <div class="gnb-item">
+          <a class="gnb-link" href="index.html#menu">메뉴</a>
+          <ul class="gnb-sub">
+            <li><a href="index.html#menu-0">파누쪼</a></li>
+            <li><a href="index.html#menu-1">피자</a></li>
+            <li><a href="index.html#menu-2">파스타/라이스</a></li>
+            <li><a href="index.html#menu-3">샐러드</a></li>
+            <li><a href="index.html#menu-4">디너</a></li>
+            <li><a href="index.html#menu-5">사이드</a></li>
+            <li><a href="index.html#menu-6">음료</a></li>
+          </ul>
+        </div>
+        <div class="gnb-item">
+          <a class="gnb-link" href="index.html#event">이벤트</a>
+          <ul class="gnb-sub">
+            <li><a href="index.html#event">시즌 이벤트</a></li>
+            <li><a href="index.html#best">BEST 메뉴</a></li>
+            <li><a href="https://www.instagram.com/ogupizzeria/" target="_blank" rel="noopener">인스타그램 소식</a></li>
+          </ul>
+        </div>
+        <div class="gnb-item current">
+          <a class="gnb-link" href="index.html#store">매장안내</a>
+          <ul class="gnb-sub">
+            <li><a href="stores.html">매장찾기</a></li>
+            <li><a href="index.html#store">매장 정보</a></li>
+            <li><a href="https://naver.me/Gow61ugu" target="_blank" rel="noopener">오시는 길</a></li>
+            <li><a href="https://naver.me/5nh1n6BV" target="_blank" rel="noopener">런치 예약</a></li>
+            <li><a href="https://naver.me/xwo0nIop" target="_blank" rel="noopener">디너 예약</a></li>
+            <li><a href="index.html#order">배달 주문</a></li>
+          </ul>
+        </div>
+        <div class="gnb-item">
+          <a class="gnb-link" href="index.html#brand">브랜드</a>
+          <ul class="gnb-sub">
+            <li><a href="index.html#brand">오구 이야기</a></li>
+          </ul>
+        </div>
+        <div class="gnb-item">
+          <a class="gnb-link" href="support.html">고객센터</a>
+          <ul class="gnb-sub">
+            <li><a href="support.html#notice">공지사항</a></li>
+            <li><a href="support.html#faq">FAQ</a></li>
+            <li><a href="support.html#qna">1:1 문의</a></li>
+          </ul>
+        </div>
+      </nav>
+      <a href="index.html#order" class="btn-reserve">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v2M17 3v2M4 8h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg>
+        예약하기
+      </a>
+    </div>
+    <nav class="gnb-mobile" aria-label="모바일 메뉴">
+      <a href="index.html#menu">메뉴</a>
+      <a href="index.html#event">이벤트</a>
+      <a href="stores.html" class="current">매장찾기</a>
+      <a href="support.html">고객센터</a>
+    </nav>
+  </header>
+  <main class="container stores">
+    <h1 class="support-title">매장찾기</h1>
+    <p class="stores-lead">가까운 오구 피제리아 직영점을 찾아보세요.</p>
+
+    <div class="stores-layout">
+      <aside class="stores-side">
+        <label class="search">
+          <input type="search" id="storeSearch" placeholder="지역, 매장명, 역 이름으로 검색">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        </label>
+        <p class="stores-count">직영점 <b id="storeCount">0</b>곳</p>
+        <div class="store-list" id="storeList"></div>
+      </aside>
+      <div class="stores-main">
+        <iframe class="store-map" id="storeMap" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <article class="store-detail" id="storeDetail"></article>
+      </div>
+    </div>
+  </main>
+  <footer class="footer">
+    <div class="container">
+      <a href="index.html" class="logo logo-footer"><span class="logo-ogu">ogu</span><span class="logo-pizzeria">pizzeria</span></a>
+      <p class="footer-info">상호 : 오구피제리아 · 대표 : 한동효 · 사업자등록번호 : 298-86-00407<br>주소 : 서울특별시 서초구 반포대로27길 13 1층 · 전화 : 02-598-1259</p>
+      <p class="copyright">© OGU Pizzeria. All rights reserved. · <a href="admin.html">관리자</a></p>
+    </div>
+  </footer>
+  <script src="js/stores.js?v=5"></script>
+  <script src="js/header.js?v=5"></script>
+</body>
+</html>

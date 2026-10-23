@@ -135,5 +135,19 @@ const MENU = [
       </article>`).join('');
   }
 
+  // 상단 메뉴의 "#menu-1" 같은 링크로 들어오면 해당 탭을 열고 메뉴로 이동
+  function fromHash() {
+    const m = location.hash.match(/^#menu-(\d+)$/);
+    if (!m || !MENU[m[1]]) return;
+    show(Number(m[1]));
+    document.getElementById('menu').scrollIntoView();
+  }
+  window.addEventListener('hashchange', fromHash);
+  document.addEventListener('click', e => {
+    const a = e.target.closest('a[href^="#menu-"]');
+    if (a && a.getAttribute('href') === location.hash) fromHash();
+  });
+
   show(0);
+  fromHash();
 })();

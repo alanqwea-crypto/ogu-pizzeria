@@ -9,7 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,800&family=Pacifico&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css">
-  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/style.css?v=5">
 </head>
 <body>
 
@@ -25,11 +25,51 @@
         <span class="logo-ogu">ogu</span><span class="logo-pizzeria">pizzeria</span>
       </a>
       <nav class="gnb" aria-label="주요 메뉴">
-        <a href="#menu">메뉴</a>
-        <a href="#event">이벤트</a>
-        <a href="#store">매장안내</a>
-        <a href="#brand">브랜드</a>
-        <a href="support.html">고객센터</a>
+        <div class="gnb-item">
+          <a class="gnb-link" href="#menu">메뉴</a>
+          <ul class="gnb-sub">
+            <li><a href="#menu-0">파누쪼</a></li>
+            <li><a href="#menu-1">피자</a></li>
+            <li><a href="#menu-2">파스타/라이스</a></li>
+            <li><a href="#menu-3">샐러드</a></li>
+            <li><a href="#menu-4">디너</a></li>
+            <li><a href="#menu-5">사이드</a></li>
+            <li><a href="#menu-6">음료</a></li>
+          </ul>
+        </div>
+        <div class="gnb-item">
+          <a class="gnb-link" href="#event">이벤트</a>
+          <ul class="gnb-sub">
+            <li><a href="#event">시즌 이벤트</a></li>
+            <li><a href="#best">BEST 메뉴</a></li>
+            <li><a href="https://www.instagram.com/ogupizzeria/" target="_blank" rel="noopener">인스타그램 소식</a></li>
+          </ul>
+        </div>
+        <div class="gnb-item">
+          <a class="gnb-link" href="#store">매장안내</a>
+          <ul class="gnb-sub">
+            <li><a href="stores.html">매장찾기</a></li>
+            <li><a href="#store">매장 정보</a></li>
+            <li><a href="https://naver.me/Gow61ugu" target="_blank" rel="noopener">오시는 길</a></li>
+            <li><a href="https://naver.me/5nh1n6BV" target="_blank" rel="noopener">런치 예약</a></li>
+            <li><a href="https://naver.me/xwo0nIop" target="_blank" rel="noopener">디너 예약</a></li>
+            <li><a href="#order">배달 주문</a></li>
+          </ul>
+        </div>
+        <div class="gnb-item">
+          <a class="gnb-link" href="#brand">브랜드</a>
+          <ul class="gnb-sub">
+            <li><a href="#brand">오구 이야기</a></li>
+          </ul>
+        </div>
+        <div class="gnb-item">
+          <a class="gnb-link" href="support.html">고객센터</a>
+          <ul class="gnb-sub">
+            <li><a href="support.html#notice">공지사항</a></li>
+            <li><a href="support.html#faq">FAQ</a></li>
+            <li><a href="support.html#qna">1:1 문의</a></li>
+          </ul>
+        </div>
       </nav>
       <a href="#order" class="btn-reserve">
         <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3v2M17 3v2M4 8h16M5 5h14a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1z"/></svg>
@@ -39,7 +79,7 @@
     <nav class="gnb-mobile" aria-label="모바일 메뉴">
       <a href="#menu">메뉴</a>
       <a href="#event">이벤트</a>
-      <a href="#store">매장안내</a>
+      <a href="stores.html">매장찾기</a>
       <a href="support.html">고객센터</a>
     </nav>
   </header>
@@ -49,7 +89,7 @@
     <section class="hero container" aria-label="메인 배너">
       <div class="slider" id="slider">
         <div class="slides">
-          <article class="slide slide-beige">
+          <article class="slide slide-green">
             <div class="slide-text">
               <p class="slide-eyebrow">서초역 캐주얼 다이닝</p>
               <h2>아침부터 저녁까지,<br>미식의 순간</h2>
@@ -57,7 +97,7 @@
             </div>
             <div class="slide-img"><img src="images/brand-pizza.jpg" alt="루꼴라와 부라타를 올린 화덕피자"></div>
           </article>
-          <article class="slide slide-peach">
+          <article class="slide slide-yellow">
             <div class="slide-text">
               <p class="slide-eyebrow">10월 신메뉴 출시!</p>
               <h2>새로운 메뉴가<br>찾아왔어요</h2>
@@ -233,6 +273,7 @@
     </div>
   </footer>
 
-  <script src="js/main.js"></script>
+  <script src="js/main.js?v=5"></script>
+  <script src="js/header.js?v=5"></script>
 </body>
 </html>
