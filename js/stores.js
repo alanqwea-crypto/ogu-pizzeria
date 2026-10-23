@@ -21,6 +21,15 @@ const STORES = [
       coupang: 'https://web.coupangeats.com/share?storeId=1038656&dishId&key=9a4fbead-d1d6-4c46-999f-460b4fb19ba2',
     },
   },
+  {
+    // 오픈 전 매장: soon: true 로 두면 'COMING SOON' 으로 표시되고 예약·주문 버튼이 숨겨집니다.
+    soon: true,
+    name: '오구피제리아 스타필드 고양점',
+    type: 'COMING SOON',
+    region: '경기 고양시 덕양구 스타필드',
+    address: '경기 고양시 덕양구 고양대로 1955 스타필드 고양',
+    subway: '3호선 삼송역 도보 8분',
+  },
 ];
 
 (function () {
@@ -41,7 +50,7 @@ const STORES = [
     listEl.innerHTML = shown.length
       ? shown.map(({ s, i }) => `
         <button type="button" class="store-card${i === selected ? ' active' : ''}" data-store="${i}">
-          <span class="store-type">${s.type}</span>
+          <span class="store-type${s.soon ? ' soon' : ''}">${s.type}</span>
           <strong>${s.name}</strong>
           <span class="store-addr">${s.address}</span>
           <span class="store-sub">${s.subway}</span>
@@ -53,6 +62,24 @@ const STORES = [
     const s = STORES[selected];
     mapEl.src = mapUrl(s.address);
     mapEl.title = `${s.name} 지도`;
+    if (s.soon) {
+      detailEl.innerHTML = `
+        <div class="store-soon-visual"><span>COMING<br>SOON</span></div>
+        <div class="store-detail-body">
+          <span class="store-type soon">${s.type}</span>
+          <h2>${s.name}</h2>
+          <dl>
+            <dt>주소</dt><dd>${s.address}</dd>
+            <dt>오시는 길</dt><dd>${s.subway}</dd>
+            <dt>오픈</dt><dd>오픈 준비 중입니다</dd>
+          </dl>
+          <p class="store-soon-note">오픈 일정과 소식은 인스타그램에서 가장 먼저 알려드릴게요.</p>
+          <div class="store-btns">
+            <a class="btn-primary" href="https://www.instagram.com/ogupizzeria/" target="_blank" rel="noopener">인스타그램에서 소식 받기</a>
+          </div>
+        </div>`;
+      return;
+    }
     detailEl.innerHTML = `
       <img src="${s.image}" alt="${s.name} 매장 내부">
       <div class="store-detail-body">

@@ -208,7 +208,8 @@ svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width:
 
 /* ---------- 매장안내 ---------- */
 .store { display: grid; grid-template-columns: 1.1fr 1fr; gap: 0; background: var(--white); border-radius: var(--radius); overflow: hidden; }
-.store-map img { width: 100%; height: 100%; object-fit: cover; min-height: 320px; }
+.home-map { min-height: 360px; background: #e9e5df; }
+.home-map iframe { display: block; width: 100%; height: 100%; min-height: 360px; border: 0; }
 .store-info { padding: 44px 48px; }
 .store-info h3 { font-size: 24px; margin-bottom: 24px; }
 .store-info dl { display: grid; grid-template-columns: 90px 1fr; gap: 14px 16px; font-size: 16px; }
@@ -316,6 +317,10 @@ button.qna-row:hover { background: var(--white); }
 .store-card.active { border-color: var(--red); }
 .store-card strong { font-size: 17px; }
 .store-type { align-self: flex-start; font-size: 12px; font-weight: 700; color: var(--white); background: var(--green); padding: 2px 10px; border-radius: 999px; }
+.store-type.soon { background: var(--mustard); color: var(--brown); }
+.store-soon-visual { display: grid; place-items: center; min-height: 260px; background: var(--mustard); }
+.store-soon-visual span { font-family: "Jalnan", "Pretendard", sans-serif; font-size: 40px; line-height: 1.15; text-align: center; color: var(--brown); }
+.store-soon-note { margin-top: 18px; font-size: 14px; color: var(--muted); }
 .store-addr { font-size: 14px; color: var(--text); }
 .store-sub { font-size: 13px; color: var(--muted); }
 .stores-main { display: flex; flex-direction: column; gap: 20px; }
